@@ -1,6 +1,6 @@
 package com.example.demo;
 
-public class Department {
+public class Department implements Comparable<Employee> {
     private int id;
     private String name;
 
@@ -23,5 +23,15 @@ public class Department {
     public Department(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        if (o.getId() < this.id) {
+            return -1;
+        } else if (o.getId() > this.id) {
+            return 1;
+        }
+        return 0;
     }
 }
